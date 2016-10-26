@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.garethahealy.poms</groupId>
-        <artifactId>jboss-fuse-parent</artifactId>
-        <version>1.0.3</version>
+        <artifactId>camel-on-springboot-parent</artifactId>
+        <version>1.0.4-SNAPSHOT</version>
         <relativePath/>
     </parent>
     <groupId>com.garethahealy.mapstruct-poc</groupId>
@@ -24,6 +24,11 @@
         <developerConnection>scm:git:https://github.com/garethahealy/mapstruct-poc/tree/master</developerConnection>
         <url>https://github.com/garethahealy/mapstruct-poc/tree/master</url>
     </scm>
+
+    <modules>
+        <module>mapping-model</module>
+        <module>mapping-context</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>

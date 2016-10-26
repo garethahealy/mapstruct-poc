@@ -3,6 +3,6 @@
 [![License](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 
 # mapstruct-poc
-PoC looking into MapStruct
+PoC looking into MapStruct used in Apache Camel running on Sprint Boot
 - http://mapstruct.org
 
