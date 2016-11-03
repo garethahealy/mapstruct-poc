@@ -19,8 +19,13 @@
  */
 package com.garethahealy.mapstructpoc.mappingmodel;
 
-/**
- * Created by garethah on 25/10/2016.
- */
-public class Mapper {
+public class ColourMapper {
+
+    public String toString(Integer[][][] colour) {
+        return "";
+    }
+
+    public Integer[][][] toInteger(String colour) {
+        return new Integer[0][0][0];
+    }
 }

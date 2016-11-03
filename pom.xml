@@ -16,7 +16,8 @@
     <name>GarethHealy :: MapStruct PoC</name>
 
     <properties>
-        <org.mapstruct.version>1.0.0.Final</org.mapstruct.version>
+        <org.mapstruct.version>1.1.0.CR1</org.mapstruct.version>
+        <commons-lang3-version>3.4</commons-lang3-version>
     </properties>
 
     <scm>
@@ -44,5 +45,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3-version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
