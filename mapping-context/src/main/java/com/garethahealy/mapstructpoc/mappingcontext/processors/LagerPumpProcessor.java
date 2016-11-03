@@ -17,22 +17,17 @@
  * limitations under the License.
  * #L%
  */
-package com.garethahealy.mapstructpoc.mappingcontext;
+package com.garethahealy.mapstructpoc.mappingcontext.processors;
 
-import com.garethahealy.mapstructpoc.mappingcontext.processors.BeerToLagerProcessor;
-import com.garethahealy.mapstructpoc.mappingcontext.processors.LagerPumpProcessor;
+import com.garethahealy.mapstructpoc.mappingmodel.entities.Lager;
 
-import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 
-@Component
-public class MappingRoute extends RouteBuilder {
+public class LagerPumpProcessor implements Processor {
 
     @Override
-    public void configure() throws Exception {
-        from("timer:hello?period=1s")
-            .process(new LagerPumpProcessor())
-            .process(new BeerToLagerProcessor())
-            .log("${body}");
+    public void process(Exchange exchange) throws Exception {
+        exchange.getIn().setBody(new Lager(Long.valueOf(101L), "Stella", "InBev", Double.valueOf(4.9), new Integer[] {255, 194, 0}, "Standard"));
     }
 }

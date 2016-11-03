@@ -20,7 +20,7 @@
 package com.garethahealy.mapstructpoc.mappingmodel;
 
 import com.garethahealy.mapstructpoc.mappingmodel.entities.Bitter;
-import com.garethahealy.mapstructpoc.mappingmodel.entities.Larger;
+import com.garethahealy.mapstructpoc.mappingmodel.entities.Lager;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -40,5 +40,5 @@ public interface BeerMapper {
         @Mapping(source = "colour", target = "colour"),
         @Mapping(source = "tastingNote", target = "taste")
         })
-    Bitter largerToBitter(Larger larger);
+    Bitter largerToBitter(Lager lager);
 }

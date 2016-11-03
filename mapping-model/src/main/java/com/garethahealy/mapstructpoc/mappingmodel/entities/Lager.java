@@ -21,7 +21,7 @@ package com.garethahealy.mapstructpoc.mappingmodel.entities;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Larger {
+public class Lager {
 
     private Long id;
     private String name;
@@ -30,7 +30,7 @@ public class Larger {
     private Integer[] colour;
     private String tastingNote;
 
-    public Larger(Long id, String name, String breweryId, Double percentage, Integer[] colour, String tastingNote) {
+    public Lager(Long id, String name, String breweryId, Double percentage, Integer[] colour, String tastingNote) {
         this.id = id;
         this.name = name;
         this.breweryId = breweryId;
@@ -39,7 +39,7 @@ public class Larger {
         this.tastingNote = tastingNote;
     }
 
-    public Larger() {
+    public Lager() {
 
     }
 
