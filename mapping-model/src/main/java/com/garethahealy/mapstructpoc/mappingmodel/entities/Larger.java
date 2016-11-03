@@ -27,10 +27,10 @@ public class Larger {
     private String name;
     private String breweryId;
     private Double percentage;
-    private Integer[][][] colour;
+    private Integer[] colour;
     private String tastingNote;
 
-    public Larger(Long id, String name, String breweryId, Double percentage, Integer[][][] colour, String tastingNote) {
+    public Larger(Long id, String name, String breweryId, Double percentage, Integer[] colour, String tastingNote) {
         this.id = id;
         this.name = name;
         this.breweryId = breweryId;
@@ -75,15 +75,15 @@ public class Larger {
         this.percentage = percentage;
     }
 
-    public Integer[][][] getColour() {
+    public Integer[] getColour() {
         if (colour != null) {
-            colour.clone();
+            return colour.clone();
         }
         
-        return null;
+        return new Integer[0];
     }
 
-    public void setColour(Integer[][][] colour) {
+    public void setColour(Integer[] colour) {
         this.colour = colour.clone();
     }
 

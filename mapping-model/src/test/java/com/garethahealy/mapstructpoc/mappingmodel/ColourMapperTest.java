@@ -19,26 +19,28 @@
  */
 package com.garethahealy.mapstructpoc.mappingmodel;
 
-public class ColourMapper {
+import org.junit.Assert;
+import org.junit.Test;
 
-    public String toString(Integer[] colour) {
-        if (colour == null) {
-            return null;
-        }
+public class ColourMapperTest {
 
-        Integer red = colour[0];
-        Integer green = colour[1];
-        Integer blue = colour[2];
+    @Test
+    public void canToInteger() {
+        ColourMapper mapper = new ColourMapper();
+        Integer[] answer = mapper.toInteger("1,2,3");
 
-        return String.format("%s,%s,%s", String.valueOf(red), String.valueOf(green), String.valueOf(blue));
+        Assert.assertNotNull(answer);
+        Assert.assertEquals(new Integer(1), answer[0]);
+        Assert.assertEquals(new Integer(2), answer[1]);
+        Assert.assertEquals(new Integer(3), answer[2]);
     }
 
-    public Integer[] toInteger(String colour) {
-        String[] colourSplit = colour.split(",");
-        String red = colourSplit[0];
-        String green = colourSplit[1];
-        String blue = colourSplit[2];
+    @Test
+    public void canToString() {
+        ColourMapper mapper = new ColourMapper();
+        String answer = mapper.toString(new Integer[] {1, 2, 3});
 
-        return new Integer[] {Integer.parseInt(red), Integer.parseInt(green), Integer.parseInt(blue)};
+        Assert.assertNotNull(answer);
+        Assert.assertEquals("1,2,3", answer);
     }
 }

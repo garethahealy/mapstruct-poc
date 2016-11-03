@@ -29,8 +29,22 @@ public class BeerMapperTest {
 
     @Test
     public void canLargerToBitter() {
-        Bitter bitter = BeerMapper.INSTANCE.largerToBitter(new Larger());
+        Larger larger = new Larger(Long.valueOf(101L), "Stella", "InBev", Double.valueOf(4.9), new Integer[] {255, 194, 0}, "Standard");
+        Bitter bitter = BeerMapper.INSTANCE.largerToBitter(larger);
 
         Assert.assertNotNull(bitter);
+        Assert.assertNotNull(bitter.getId());
+        Assert.assertNotNull(bitter.getName());
+        Assert.assertNotNull(bitter.getBrewery());
+        Assert.assertNotNull(bitter.getStrength());
+        Assert.assertNotNull(bitter.getColour());
+        Assert.assertNotNull(bitter.getTaste());
+
+        Assert.assertEquals(String.valueOf(larger.getId()), bitter.getId());
+        Assert.assertEquals(larger.getName(), bitter.getName());
+        Assert.assertEquals(larger.getBreweryId(), bitter.getBrewery());
+        Assert.assertEquals(String.valueOf(larger.getPercentage()), bitter.getStrength());
+        Assert.assertEquals("255,194,0", bitter.getColour());
+        Assert.assertEquals(larger.getTastingNote(), bitter.getTaste());
     }
 }
