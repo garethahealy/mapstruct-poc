@@ -19,8 +19,11 @@
  */
 package com.garethahealy.mapstructpoc.mappingcontext;
 
+import com.garethahealy.camelmapstruct.converter.MapStructTypeConverterLoader;
 import com.garethahealy.mapstructpoc.mappingcontext.processors.BeerToLagerProcessor;
 import com.garethahealy.mapstructpoc.mappingcontext.processors.LagerPumpProcessor;
+import com.garethahealy.mapstructpoc.mappingmodel.BeerMapper;
+import com.garethahealy.mapstructpoc.mappingmodel.entities.Bitter;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
@@ -30,9 +33,16 @@ public class MappingRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("timer:hello?period=1s")
+        new MapStructTypeConverterLoader<BeerMapper>(getContext(), BeerMapper.class);
+
+        from("timer:hello-BeerToLagerProcessor?period=1s")
             .process(new LagerPumpProcessor())
             .process(new BeerToLagerProcessor())
+            .log("${body}");
+
+        from("timer:hello-convertBodyTo?period=1s")
+            .process(new LagerPumpProcessor())
+            .convertBodyTo(Bitter.class)
             .log("${body}");
     }
 }
