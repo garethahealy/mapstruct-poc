@@ -1,4 +1,3 @@
-sudo: required
 dist: trusty
 language: java
 jdk:
@@ -6,9 +5,7 @@ jdk:
 install:
 - mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
 - java -version && javac -version && ./mvnw -version -B
-- git clone https://github.com/garethahealy/camel-mapstruct.git
-- ./mvnw clean install -f camel-mapstruct/pom.xml -DskipTests
-- rm -rf camel-mapstruct
+- git clone https://github.com/garethahealy/camel-mapstruct.git && ./mvnw clean install -f camel-mapstruct/pom.xml -DskipTests && rm -rf camel-mapstruct
 before_script:
 - ./mvnw dependency:go-offline -B
 script:
@@ -16,4 +13,3 @@ script:
 cache:
   directories:
   - $HOME/.m2
-  - $HOME/.victims
